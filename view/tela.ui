@@ -72,9 +72,9 @@ PushButton
     <widget class="QLabel" name="labelTelaInicialTitulo1_2">
      <property name="geometry">
       <rect>
-       <x>280</x>
+       <x>260</x>
        <y>0</y>
-       <width>261</width>
+       <width>511</width>
        <height>71</height>
       </rect>
      </property>
@@ -97,7 +97,7 @@ PushButton
       <rect>
        <x>40</x>
        <y>218</y>
-       <width>83</width>
+       <width>101</width>
        <height>28</height>
       </rect>
      </property>
@@ -120,7 +120,7 @@ PushButton
       <rect>
        <x>40</x>
        <y>184</y>
-       <width>71</width>
+       <width>91</width>
        <height>28</height>
       </rect>
      </property>
@@ -192,7 +192,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>354</y>
-       <width>140</width>
+       <width>161</width>
        <height>47</height>
       </rect>
      </property>
@@ -215,7 +215,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>286</y>
-       <width>188</width>
+       <width>201</width>
        <height>28</height>
       </rect>
      </property>
@@ -262,7 +262,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>82</y>
-       <width>113</width>
+       <width>131</width>
        <height>28</height>
       </rect>
      </property>
@@ -294,6 +294,9 @@ color:black;</string>
 border-radius:5px;
 
 color: balck;</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="cadastroDeViagemEntradaVeiculo">
@@ -340,7 +343,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>320</y>
-       <width>50</width>
+       <width>71</width>
        <height>28</height>
       </rect>
      </property>
@@ -363,7 +366,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>116</y>
-       <width>108</width>
+       <width>121</width>
        <height>28</height>
       </rect>
      </property>
@@ -438,6 +441,16 @@ border-radius:5px;
 color:black;
 </string>
      </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+     <property name="date">
+      <date>
+       <year>2020</year>
+       <month>1</month>
+       <day>1</day>
+      </date>
+     </property>
     </widget>
     <widget class="QTimeEdit" name="cadastroDeViagemEntradaHorarioChegada">
      <property name="geometry">
@@ -452,6 +465,9 @@ color:black;
       <string notr="true">border:1px solid blue;
 border-radius:5px;
 color:black;</string>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="cadastroDeViagemEntradaAuxiliar2">
@@ -483,7 +499,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>252</y>
-       <width>154</width>
+       <width>171</width>
        <height>28</height>
       </rect>
      </property>
@@ -530,7 +546,7 @@ color:black;</string>
       <rect>
        <x>40</x>
        <y>150</y>
-       <width>108</width>
+       <width>131</width>
        <height>28</height>
       </rect>
      </property>
@@ -657,10 +673,10 @@ border-radius:5px;</string>
     <widget class="QLabel" name="labelTelaInicialTitulo1">
      <property name="geometry">
       <rect>
-       <x>230</x>
-       <y>10</y>
-       <width>421</width>
-       <height>81</height>
+       <x>160</x>
+       <y>20</y>
+       <width>551</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
@@ -703,6 +719,277 @@ border-radius:5px;</string>
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="frameRelatorioDeViagens">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="labelRelatorioDeViagensTitulo">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>10</y>
+       <width>551</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:blue;</string>
+     </property>
+     <property name="text">
+      <string>RELATORIO DE VIAGENS</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>771</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QDateEdit" name="relatorioDeViagensDataDatade">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>10</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+      <property name="date">
+       <date>
+        <year>2020</year>
+        <month>1</month>
+        <day>1</day>
+       </date>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>10</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>DO DIA</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>10</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ATÉ O DIA</string>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="relatorioDeViagensDataDataate">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>10</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+      <property name="date">
+       <date>
+        <year>2020</year>
+        <month>1</month>
+        <day>1</day>
+       </date>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="relatorioDeViagensBotaoBuscar">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>10</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>BUSCAR</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QTableWidget" name="tabelaListagemViagens">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>771</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>MOTORISTA</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>AUXILIAR 1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>AUXILIAR 2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>CIDADE</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>VEICULO</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>H SAIDA</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>H CHEGADA</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>DATA</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>OBSERVAÇÕES</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="botaoRelatorioDeViagensVoltar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>540</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>28</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+border:1px solid red;
+border-radius:5px;</string>
+     </property>
+     <property name="text">
+      <string>voltar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="botaoRelatorioDeViagensExportar">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>540</y>
+       <width>291</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: green;
+border:1px solid green;
+border-radius:5px;</string>
+     </property>
+     <property name="text">
+      <string>EXPORTAR COMO EXCEL</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frameCadastrarViagem</zorder>
+   <zorder>frameRelatorioDeViagens</zorder>
+   <zorder>frameTelaInicial</zorder>
   </widget>
  </widget>
  <resources/>

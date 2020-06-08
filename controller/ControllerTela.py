@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QMainWindow
 from view.tela import Ui_MainWindow
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 from model.Viagem import Viagem
+from openpyxl import Workbook
+import getpass, time
 
 
 class ControllerTela(QMainWindow):
@@ -13,8 +16,19 @@ class ControllerTela(QMainWindow):
             self.mostrarFrameCadastrarViagem)
         self.tela.botaoCadastrarViagemVoltar.clicked.connect(
             self.mostrarFrameTelaInicial)
+        self.tela.botaoTelaInicialRelatorioDeViagens.clicked.connect(
+            self.mostrarFrameRleatorioDeViagens)
+
+        self.tela.relatorioDeViagensBotaoBuscar.clicked.connect(
+            self.listarViagens)
+
+        self.tela.botaoRelatorioDeViagensExportar.clicked.connect(self.exportarExcel)
+        self.tela.botaoRelatorioDeViagensVoltar.clicked.connect(
+            self.mostrarFrameTelaInicial)
         self.tela.botaoCadastroDeViagemSalvar.clicked.connect(
             self.adicionarViagem)
+        
+        self.tela.botaoTelaInicialSair.clicked.connect(exit)
 
     def mostrarFrameTelaInicial(self):
         self.esconderTodosOsFramesDeUso()
@@ -24,9 +38,14 @@ class ControllerTela(QMainWindow):
         self.esconderTodosOsFramesDeUso()
         self.tela.frameCadastrarViagem.show()
 
+    def mostrarFrameRleatorioDeViagens(self):
+        self.esconderTodosOsFramesDeUso()
+        self.tela.frameRelatorioDeViagens.show()
+
     def esconderTodosOsFramesDeUso(self):
         self.tela.frameTelaInicial.hide()
         self.tela.frameCadastrarViagem.hide()
+        self.tela.frameRelatorioDeViagens.hide()
 
     def adicionarViagem(self):
         motorista = self.tela.cadastroDeViagemEntradaMotorista.text()
@@ -41,30 +60,60 @@ class ControllerTela(QMainWindow):
 
         viagem = Viagem()
         viagem.adicionarViagem(motorista, auxiliar1, auxiliar2, cidade, veiculo,
-            horariodesaida, horariodechegada, data, observacoes)
-    # adicionar valor a tabela venda
-    def adicionarValorATabelaVenda(self):
-        valor = self.tela.entradaValorVenda.text()
-        atual = self.tela.tabelaVendaItens.rowCount()
-        self.tela.tabelaVendaItens.insertRow(atual)
-        self.tela.tabelaVendaItens.setItem(atual, 0, QTableWidgetItem(valor))
+                               horariodesaida, horariodechegada, data, observacoes)
+        self.limparTelaCadastrarViagem()
 
-        self.totalVendaAtual += float(valor)
-        self.tela.labelTotalVenda.setText(
-            "Total: {}".format(self.totalVendaAtual))
-    # fim adicionar valor a tabela venda
-        def listarEntradas(self):
-            self.tela.tabelaEntradas.setRowCount(0)
-            entrada = Entrada()
-            entradas = entrada.listarEntradas()
-            for elemento in entradas:
-                atual = self.tela.tabelaEntradas.rowCount()
-                self.tela.tabelaEntradas.insertRow(atual)
-                self.tela.tabelaEntradas.setItem(
-                    atual, 0, QTableWidgetItem(str(elemento[0])))
-                self.tela.tabelaEntradas.setItem(
-                    atual, 1, QTableWidgetItem(str(elemento[1])))
-                self.tela.tabelaEntradas.setItem(
-                    atual, 2, QTableWidgetItem(str(elemento[2])))
-                self.tela.tabelaEntradas.setItem(
-                    atual, 3, QTableWidgetItem(str(elemento[3])))
+    def listarViagens(self):
+        self.tela.tabelaListagemViagens.setRowCount(0)
+        viagem = Viagem()
+        viagens = viagem.listarViagens(self.tela.relatorioDeViagensDataDatade.text(
+        ), self.tela.relatorioDeViagensDataDataate.text())
+        for elemento in viagens:
+            atual = self.tela.tabelaListagemViagens.rowCount()
+            self.tela.tabelaListagemViagens.insertRow(atual)
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 0, QTableWidgetItem(str(elemento[0])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 1, QTableWidgetItem(str(elemento[1])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 2, QTableWidgetItem(str(elemento[2])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 3, QTableWidgetItem(str(elemento[3])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 4, QTableWidgetItem(str(elemento[4])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 5, QTableWidgetItem(str(elemento[5])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 6, QTableWidgetItem(str(elemento[6])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 7, QTableWidgetItem(str(elemento[7])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 8, QTableWidgetItem(str(elemento[8])))
+            self.tela.tabelaListagemViagens.setItem(
+                atual, 9, QTableWidgetItem(str(elemento[9])))
+
+    def exportarExcel(self):
+        viagem = Viagem()
+        viagens = viagem.listarViagens(self.tela.relatorioDeViagensDataDatade.text(
+        ), self.tela.relatorioDeViagensDataDataate.text())
+        viagens= list(viagens)
+        wb = Workbook()
+        ws = wb.active
+        for row in viagens:
+            #print(row)
+            ws.append(tuple(row))
+        wb.save("C:/Users/{}/Desktop/{}.xlsx".format(getpass.getuser(), "relatorio{}".format(time.time())))
+        
+
+
+    def limparTelaCadastrarViagem(self):
+        self.tela.cadastroDeViagemEntradaMotorista.clear()
+        self.tela.cadastroDeViagemEntradaAuxiliar1.clear()
+        self.tela.cadastroDeViagemEntradaAuxiliar2.clear()
+        self.tela.cadastroDeViagemEntradaCidade.clear()
+        self.tela.cadastroDeViagemEntradaVeiculo.clear()
+        self.tela.cadastroDeViagemEntradaHorarioSaida.clear()
+        self.tela.cadastroDeViagemEntradaHorarioChegada.clear()
+        self.tela.cadastroDeViagemEntradaData.clear()
+        self.tela.cadastroDeViagemEntradaObservacoes.clear()
+        self.tela.cadastroDeViagemLabelErro.setText("REGISTRO SALVO!")

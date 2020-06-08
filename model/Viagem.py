@@ -29,5 +29,6 @@ class Viagem():
         self.engine.execute("INSERT INTO viagem (motorista, auxiliar1, auxiliar2, cidade, veiculo, horariodesaida, horariodechegada, data, observacoes) VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
             motorista, auxiliar1, auxiliar2, cidade, veiculo, horariodesaida, horariodechegada, data, observacoes))
 
-    def listarTodasAsViagens(self):
-        return (self.engine.execute("SELECT * FROM viagem")).fetchall()
+    def listarViagens(self,de,ate):
+        lista = (self.engine.execute("SELECT * FROM viagem WHERE data BETWEEN '{}' and '{}'".format(de, ate))).fetchall()
+        return lista
