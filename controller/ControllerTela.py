@@ -3,7 +3,8 @@ from view.tela import Ui_MainWindow
 from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 from model.Viagem import Viagem
 from openpyxl import Workbook
-import getpass, time
+import getpass
+import time
 
 
 class ControllerTela(QMainWindow):
@@ -18,16 +19,26 @@ class ControllerTela(QMainWindow):
             self.mostrarFrameTelaInicial)
         self.tela.botaoTelaInicialRelatorioDeViagens.clicked.connect(
             self.mostrarFrameRleatorioDeViagens)
-
+        self.tela.botaoExcluirViagemExcluir.clicked.connect(
+            self.excluirViagem)
         self.tela.relatorioDeViagensBotaoBuscar.clicked.connect(
             self.listarViagens)
 
-        self.tela.botaoRelatorioDeViagensExportar.clicked.connect(self.exportarExcel)
+        self.tela.botaoRelatorioDeViagensExportar.clicked.connect(
+            self.exportarExcel)
+
+        self.tela.botaoTelaInicialModificarViagem.clicked.connect(
+            self.mostrarFrameExcluirViagem)
+
+        self.tela.botaoExcluirViagemVoltar.clicked.connect(
+            self.mostrarFrameTelaInicial)
+
+
         self.tela.botaoRelatorioDeViagensVoltar.clicked.connect(
             self.mostrarFrameTelaInicial)
         self.tela.botaoCadastroDeViagemSalvar.clicked.connect(
             self.adicionarViagem)
-        
+
         self.tela.botaoTelaInicialSair.clicked.connect(exit)
 
     def mostrarFrameTelaInicial(self):
@@ -42,10 +53,15 @@ class ControllerTela(QMainWindow):
         self.esconderTodosOsFramesDeUso()
         self.tela.frameRelatorioDeViagens.show()
 
+    def mostrarFrameExcluirViagem(self):
+        self.esconderTodosOsFramesDeUso()
+        self.tela.frameExcluirViagem.show()
+
     def esconderTodosOsFramesDeUso(self):
         self.tela.frameTelaInicial.hide()
         self.tela.frameCadastrarViagem.hide()
         self.tela.frameRelatorioDeViagens.hide()
+        self.tela.frameExcluirViagem.hide()
 
     def adicionarViagem(self):
         motorista = self.tela.cadastroDeViagemEntradaMotorista.text()
@@ -96,15 +112,19 @@ class ControllerTela(QMainWindow):
         viagem = Viagem()
         viagens = viagem.listarViagens(self.tela.relatorioDeViagensDataDatade.text(
         ), self.tela.relatorioDeViagensDataDataate.text())
-        viagens= list(viagens)
+        viagens = list(viagens)
         wb = Workbook()
         ws = wb.active
         for row in viagens:
-            #print(row)
+            # print(row)
             ws.append(tuple(row))
-        wb.save("C:/Users/{}/Desktop/{}.xlsx".format(getpass.getuser(), "relatorio{}".format(time.time())))
-        
+        wb.save("C:/Users/{}/Desktop/{}.xlsx".format(getpass.getuser(),
+                                                     "relatorio{}".format(time.time())))
 
+    def excluirViagem(self):
+        viagem = Viagem()
+        viagem.removerViagem(self.tela.entradaIdViagemExcluir.text())
+        self.tela.labelExcluirViagemMensagem.setText("VIAGEM EXCLUIDA")
 
     def limparTelaCadastrarViagem(self):
         self.tela.cadastroDeViagemEntradaMotorista.clear()

@@ -667,7 +667,7 @@ color:blue;
 border-radius:5px;</string>
      </property>
      <property name="text">
-      <string>MODIFICAR VIAGEM</string>
+      <string>EXCLUIR VIAGEM</string>
      </property>
     </widget>
     <widget class="QLabel" name="labelTelaInicialTitulo1">
@@ -935,6 +935,11 @@ border-radius:5px;</string>
        <string>OBSERVAÇÕES</string>
       </property>
      </column>
+     <column>
+      <property name="text">
+       <string>ID VIAGEM</string>
+      </property>
+     </column>
     </widget>
     <widget class="QPushButton" name="botaoRelatorioDeViagensVoltar">
      <property name="geometry">
@@ -987,8 +992,166 @@ border-radius:5px;</string>
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="frameExcluirViagem">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="labelTelaInicialTitulo1_3">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>10</y>
+       <width>301</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:blue;</string>
+     </property>
+     <property name="text">
+      <string>EXCLUIR VIAGEM</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>ID DA VIAGEM</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="entradaIdViagemExcluir">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>120</y>
+       <width>271</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="botaoExcluirViagemVoltar">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>520</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>28</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+border:1px solid red;
+border-radius:5px;</string>
+     </property>
+     <property name="text">
+      <string>voltar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="botaoExcluirViagemExcluir">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>120</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;
+border:1px solid blue;
+border-radius:5px;</string>
+     </property>
+     <property name="text">
+      <string>EXCLUIR</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelExcluirViagemMensagem">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>210</y>
+       <width>181</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:red;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
    <zorder>frameCadastrarViagem</zorder>
    <zorder>frameRelatorioDeViagens</zorder>
+   <zorder>frameExcluirViagem</zorder>
    <zorder>frameTelaInicial</zorder>
   </widget>
  </widget>
