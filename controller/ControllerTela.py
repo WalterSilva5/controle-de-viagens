@@ -43,6 +43,7 @@ class ControllerTela(QMainWindow):
 
     def mostrarFrameTelaInicial(self):
         self.esconderTodosOsFramesDeUso()
+        self.limparEntradasEAvisos()
         self.tela.frameTelaInicial.show()
 
     def mostrarFrameCadastrarViagem(self):
@@ -127,6 +128,10 @@ class ControllerTela(QMainWindow):
         self.tela.labelExcluirViagemMensagem.setText("VIAGEM EXCLUIDA")
 
     def limparTelaCadastrarViagem(self):
+        self.limparEntradasTelaCadastrarViagem()
+        self.tela.cadastroDeViagemLabelErro.setText("REGISTRO SALVO!")
+
+    def limparEntradasEAvisos(self):
         self.tela.cadastroDeViagemEntradaMotorista.clear()
         self.tela.cadastroDeViagemEntradaAuxiliar1.clear()
         self.tela.cadastroDeViagemEntradaAuxiliar2.clear()
@@ -136,4 +141,6 @@ class ControllerTela(QMainWindow):
         self.tela.cadastroDeViagemEntradaHorarioChegada.clear()
         self.tela.cadastroDeViagemEntradaData.clear()
         self.tela.cadastroDeViagemEntradaObservacoes.clear()
-        self.tela.cadastroDeViagemLabelErro.setText("REGISTRO SALVO!")
+        self.tela.cadastroDeViagemLabelErro.setText("aguardando entrada")
+        self.tela.entradaIdViagemExcluir.clear()
+        self.tela.labelExcluirViagemMensagem.setText("")
