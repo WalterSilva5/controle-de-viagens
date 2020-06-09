@@ -128,7 +128,7 @@ class ControllerTela(QMainWindow):
         self.tela.labelExcluirViagemMensagem.setText("VIAGEM EXCLUIDA")
 
     def limparTelaCadastrarViagem(self):
-        self.limparEntradasTelaCadastrarViagem()
+        self.limparEntradasEAvisos()
         self.tela.cadastroDeViagemLabelErro.setText("REGISTRO SALVO!")
 
     def limparEntradasEAvisos(self):
