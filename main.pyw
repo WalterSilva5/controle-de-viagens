@@ -1,7 +1,5 @@
-def excluirViagem(self):
-        viagem = Viagem()
-        viagem.removerViagem(self.tela.entradaIdViagemExcluir.text())
-        from controller.ControllerTela import ControllerTela
+from model.ModelTela import ModelTela
+from controller.ControllerTela import ControllerTela
 from PyQt5.QtWidgets import QApplication
 
 import sys
