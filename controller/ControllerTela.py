@@ -116,6 +116,7 @@ class ControllerTela(QMainWindow):
         viagens = list(viagens)
         wb = Workbook()
         ws = wb.active
+        ws.append(tuple(['MOTORISTA', 'AUXILIAR1', 'AUXILIAR2', 'CIDADE', 'VEICULO', 'HSAIDA', 'HCHEGADA', 'DATA', 'OBSERVAÇÕES', 'ID VIAGEM']))
         for row in viagens:
             # print(row)
             ws.append(tuple(row))
