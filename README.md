@@ -9,13 +9,13 @@ install requirements.txt:
 <br>
 run the file: python main.pyw
 <br>
-<img href="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project.png">
+<img src="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project.png">
 <br>
-<img href="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project-1.png">
+<img src="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project-1.png">
 <br>
-<img href="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project-2.png">
+<img src="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project-2.png">
 <br>
-<img href="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project-3.png">
+<img src="https://raw.githubusercontent.com/WalterSilva5/controle-de-viagens/master/img/project-3.png">
 <br>
 ----------- estrutura do projeto -----------
 <pre>
