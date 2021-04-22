@@ -3,9 +3,9 @@
 
 
 <h3>How to install?</h3>
-install python3: 
+install python3: https://www.youtube.com/watch?v=rVb1TqqbPj0
 <br>
-install requirements.txt: 
+install requirements.txt: https://www.youtube.com/watch?v=Drw_X8XiXWM
 <br>
 run the file: python main.pyw
 <br>
