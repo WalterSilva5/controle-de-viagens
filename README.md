@@ -1,4 +1,12 @@
 <h1> SISTEMA DE CONTROLE DE FLUXO DE VIAGENS </h1>
+
+
+
+<h3>How to install?</h3>
+install python3: 
+install requirements.txt: 
+run the file: python main.pyw
+
 ----------- estrutura do projeto -----------
 <pre>
 project/
